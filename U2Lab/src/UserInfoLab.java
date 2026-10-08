@@ -1,9 +1,20 @@
+import java.util.Scanner;
+
 public class UserInfoLab {
     public static void main(String[] args) {
         // Part 1
         // Create a Scanner for keyboard input
+        Scanner input = new Scanner(System.in);
+
         // Ask the user to enter their first and last name and pass these
+        System.out.println("Enter your first name: ");
+        String firstName = input.nextLine();
+
+        System.out.println("Enter your last name: ");
+        String lastName = input.nextLine();
+
         // values to the generateUsername method and save the returned result.
+        String username = generateUsername(firstName, lastName);
 
         // Part 2
         // Ask the user to enter a password and pass this value to the validatePassword method.
@@ -22,7 +33,34 @@ public class UserInfoLab {
 
     public static String generateUsername(String firstName, String lastName) {
         // Fill in this method and return an appropriate username
-        return "";
+        String firstNamePart;
+        String lastNamePart;
+
+        // If the firstName is lesser than 3 character it will be name itself
+        if(firstName.length() < 3)
+        {
+            firstNamePart = firstName;
+        }
+
+        // If not then pick on the first letters
+        else
+        {
+            firstNamePart = firstName.substring(0, 3);
+        }
+
+        // If the lastName is lesser than 3 character it will be name itself
+        if(firstName.length() < 3)
+        {
+            lastNamePart = lastName;
+        }
+
+        // If not then pick on the first letters
+        else
+        {
+            lastNamePart = lastName.substring(0, 3);
+        }
+
+        return (firstNamePart + lastNamePart).toLowerCase();
     }
     public static boolean validatePassword(String password) {
         // Fill in this method and return true/false if the password is valid
